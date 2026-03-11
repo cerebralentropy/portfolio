@@ -1,0 +1,116 @@
+/* ===== Fonts ===== */
+
+/* Primary – Montserrat */
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/700.css';
+
+/* Secondary – Poppins */
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/900.css';
+
+/* Serif – Noto Serif */
+/* @import '@fontsource/noto-serif/400.css'; */
+/* @import '@fontsource/noto-serif/700.css'; */
+
+:root {
+  color-scheme: dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* ===== Backgrounds ===== */
+
+  --color-bg-primary: #040b18;
+  --color-bg-secondary: rgba(20, 32, 50, 0.75);
+  --color-bg-elevated: rgba(25, 40, 65, 0.85);
+
+  --gradient-bg-primary:
+    radial-gradient(
+      circle at 80% 20%,
+      #0b3a63 0%,
+      #0a2746 25%,
+      #071a33 55%,
+      #040b18 100%
+    );
+
+  /* ===== Text ===== */
+
+  --color-text-primary: #e5e7eb;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+
+  /* ===== Borders ===== */
+
+  --color-border-default: rgba(255,255,255,.08);
+  --color-border-subtle: rgba(255,255,255,.05);
+
+  /* ===== Accent ===== */
+
+  --color-primary-500: #3b82f6;
+  --color-primary-400: #60a5fa;
+  --color-primary-600: #2563eb;
+
+  /* ===== States ===== */
+
+  --color-focus-ring: #60a5fa;
+
+  /* ===== Shadows ===== */
+
+  --shadow-card:
+    0 20px 50px rgba(0,0,0,.45),
+    0 0 60px rgba(20,120,255,.08);
+
+  /* ===== Fonts ===== */
+
+  --font-primary: 'Montserrat', system-ui;
+  --font-secondary: 'Poppins', system-ui;
+  /* --font-serif: 'Noto Serif', serif; */
+}
+
+/* ===== Reset ===== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  font-family: var(--font-primary), sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

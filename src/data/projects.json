@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Disruptive Overlays",
+        "desc": "Dynamic studio promotional overlays integrated into live concession menu boards.",
+        "image": "layers2",
+        "link": "https://www.youtube.com/playlist?list=PL4usBPe9bJIUigEJ1T5i8Zt6KCkq-G0sr"
+    },
+    {
+        "title": "Apiary",
+        "desc": "Apiary",
+        "image": "hive",
+        "link": null
+    },
+    {
+        "title": "Flo",
+        "desc": "Flo",
+        "image": "handPlatter",
+        "link": null
+    },
+    {
+        "title": "Auditorium Entrance",
+        "desc": "AE",
+        "image": "rectangleVertical",
+        "link": null
+    },
+    {
+        "title": "Box Office",
+        "desc": "BO",
+        "image": "rectangleHorizontal",
+        "link": null
+    }
+]
