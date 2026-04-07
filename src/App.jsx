@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './styles/App.css'
 
 import Card from './components/Card/Card'
-// import Carousel from './components/Carousel/Carousel'
+import Carousel from './components/Carousel/Carousel.jsx'
 import Modal from './components/Modal/Modal'
 
 import projects from './data/projects.json'
@@ -19,17 +19,18 @@ function App() {
                     Creative Technologist
                 </div>
             </header>
-            {/* <Carousel> */}
-            <div className='carousel'>
+             <Carousel>
+            {/*<div className='carousel'>*/}
                 {projects.map(project => (
                     <Card
                         key={project.title}
                         project={project}
                         onMoreInfo={setActiveProject}
+                        // small={true}
                     />
                 ))}
-            </div>
-            {/* </Carousel> */}
+            {/*</div>*/}
+             </Carousel>
             <footer>
                 <div>
                     This portfolio is actively evolving.

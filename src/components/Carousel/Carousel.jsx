@@ -1,97 +1,112 @@
-import { Children, useEffect, useMemo, useState } from "react";
+import { Children, useEffect, useState, cloneElement, isValidElement } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import "./Carousel.css";
+import './Carousel.css'
 
 function getCardsPerView(width) {
-  if (width <= 600) return 1;
-  if (width <= 900) return 2;
-  return 3;
+    if (width <= 880) return 1;
+    if (width <= 1230) return 2;
+    return 3;
 }
 
 export default function Carousel({ children }) {
-  const slides = Children.toArray(children);
+    const slides = Children.toArray(children);
+    const slideCount = slides.length;
 
-  const [cardsPerView, setCardsPerView] = useState(() =>
-    getCardsPerView(window.innerWidth)
-  );
-  const [currentIndex, setCurrentIndex] = useState(0);
+    const [cardsPerView, setCardsPerView] = useState(() => {
+        if (typeof window === 'undefined') return 3;
+        return getCardsPerView(window.innerWidth);
+    });
 
-  useEffect(() => {
-    function handleResize() {
-      const nextCardsPerView = getCardsPerView(window.innerWidth);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-      setCardsPerView(prevCardsPerView => {
-        if (prevCardsPerView === nextCardsPerView) return prevCardsPerView;
+    useEffect(() => {
+        function handleResize() {
+            const nextCardsPerView = getCardsPerView(window.innerWidth);
 
-        setCurrentIndex(prevIndex => {
-          const nextMaxIndex = Math.max(0, slides.length - nextCardsPerView);
-          return Math.min(prevIndex, nextMaxIndex);
-        });
+            setCardsPerView(prevCardsPerView => {
+                if (prevCardsPerView === nextCardsPerView) return prevCardsPerView;
 
-        return nextCardsPerView;
-      });
+                setCurrentIndex(prevIndex => {
+                    const nextMaxIndex = Math.max(0, slideCount - nextCardsPerView);
+                    return Math.min(prevIndex, nextMaxIndex);
+                });
+
+                return nextCardsPerView;
+            });
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [slideCount]);
+
+    const maxIndex = Math.max(0, slideCount - cardsPerView);
+
+    function handlePrev() {
+        setCurrentIndex(prev => Math.max(prev - cardsPerView, 0));
     }
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [slides.length]);
+    function handleNext() {
+        setCurrentIndex(prev => Math.min(prev + cardsPerView, maxIndex));
+    }
 
-  const maxIndex = useMemo(() => {
-    return Math.max(0, slides.length - cardsPerView);
-  }, [slides.length, cardsPerView]);
+    const isMobile = cardsPerView === 1;
 
-  useEffect(() => {
-    setCurrentIndex(prev => Math.min(prev, maxIndex));
-  }, [maxIndex]);
+    return (
+        <div className="carousel">
+            {!isMobile && (
+                <button
+                    className="carousel-arrow"
+                    type="button"
+                    onClick={handlePrev}
+                    disabled={currentIndex === 0}
+                    aria-label="Previous projects"
+                >
+                    <ChevronLeft size={20} />
+                </button>
+            )}
 
-  function handlePrev() {
-    setCurrentIndex(prev => Math.max(prev - cardsPerView, 0));
-  }
+                <div className="carousel-viewport">
+                    {isMobile ? (
+                        <div className="carousel-stack">
+                            {slides.map((slide, index) => (
+                                <div className="carousel-stack-item" key={index}>
+                                    {isValidElement(slide)
+                                        ? cloneElement(slide, { small: true })
+                                        : slide}
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div
+                            className="carousel-track"
+                            style={{
+                                transform: `translateX(-${currentIndex * 21.5}rem)`
+                            }}
+                        >
+                            {slides.map((slide, index) => (
+                                <div
+                                    className="carousel-slide"
+                                    key={index}
+                                    style={{ flexBasis: "21.5rem" }}
+                                >
+                                    {slide}
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
 
-  function handleNext() {
-    setCurrentIndex(prev => Math.min(prev + cardsPerView, maxIndex));
-  }
-
-  return (
-    <div className="carousel">
-      <button
-        className="carousel-arrow"
-        type="button"
-        onClick={handlePrev}
-        disabled={currentIndex === 0}
-        aria-label="Previous projects"
-      >
-        <ChevronLeft size={20} />
-      </button>
-
-      <div className="carousel-viewport">
-        <div
-          className="carousel-track"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`
-          }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              className="carousel-slide"
-              key={index}
-              style={{ flexBasis: `${100 / cardsPerView}%` }}
-            >
-              {slide}
-            </div>
-          ))}
+            {!isMobile && (
+                <button
+                    className="carousel-arrow"
+                    type="button"
+                    onClick={handleNext}
+                    disabled={currentIndex >= maxIndex}
+                    aria-label="Next projects"
+                >
+                    <ChevronRight size={20} />
+                </button>
+            )}
         </div>
-      </div>
-
-      <button
-        className="carousel-arrow"
-        type="button"
-        onClick={handleNext}
-        disabled={currentIndex >= maxIndex}
-        aria-label="Next projects"
-      >
-        <ChevronRight size={20} />
-      </button>
-    </div>
-  );
+    );
 }

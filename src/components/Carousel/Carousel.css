@@ -1,58 +1,121 @@
 .carousel {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1rem;
+    width: 100%;
+    max-width: 73rem;
+
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
 }
 
 .carousel-viewport {
-  width: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
+    padding: 4rem 0;
+
+    /* Fade the left and right edges instead of hard visual clipping */
+    -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0,
+            black 2.5rem,
+            black calc(100% - 2.5rem),
+            transparent 100%
+    );
+    mask-image: linear-gradient(
+            to right,
+            transparent 0,
+            black 2.5rem,
+            black calc(100% - 2.5rem),
+            transparent 100%
+    );
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform .35s ease;
-  will-change: transform;
+    display: flex;
+    transition: transform 0.35s ease;
+    will-change: transform;
 }
 
 .carousel-slide {
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  padding: 0 .5rem;
+    flex: 0 0 auto;
+    min-width: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 0.75rem;
 }
 
 .carousel-arrow {
-  width: 2.75rem;
-  height: 2.75rem;
+    width: 2.75rem;
+    height: 2.75rem;
 
-  display: grid;
-  place-items: center;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
 
-  color: var(--color-text-primary);
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-default);
+    border-radius: 999px;
 
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-border-default);
-  border-radius: 999px;
+    box-shadow: var(--shadow-card);
 
-  box-shadow: var(--shadow-card);
+    cursor: pointer;
 
-  cursor: pointer;
-
-  transition:
-    background .2s ease,
-    transform .15s ease,
-    opacity .2s ease;
+    transition:
+            background 0.2s ease,
+            transform 0.15s ease,
+            opacity 0.2s ease;
 }
 
 .carousel-arrow:hover:not(:disabled) {
-  background: var(--color-bg-elevated);
-  transform: translateY(-1px);
+    background: var(--color-bg-elevated);
+    transform: translateY(-1px);
 }
 
 .carousel-arrow:disabled {
-  opacity: .35;
-  cursor: default;
+    opacity: 0.35;
+    cursor: default;
+}
+
+@media (max-width: 1230px) {
+    .carousel {
+        max-width: 51rem;
+    }
+
+    .carousel-viewport {
+        -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0,
+                black 2rem,
+                black calc(100% - 2rem),
+                transparent 100%
+        );
+        mask-image: linear-gradient(
+                to right,
+                transparent 0,
+                black 2rem,
+                black calc(100% - 2rem),
+                transparent 100%
+        );
+    }
+}
+
+@media (max-width: 880px) {
+    .carousel {
+        width: 100%;
+        display: block;
+    }
+
+    .carousel-stack {
+        display: grid;
+        justify-items: center;
+        gap: 2rem;
+    }
+
+    .carousel-viewport {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
 }

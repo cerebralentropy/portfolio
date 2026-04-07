@@ -1,10 +1,10 @@
 import "./Card.css"
 import { iconMap } from "../../data/iconMap";
 
-export default function Card({ project, onMoreInfo }) {
+export default function Card({ project, onMoreInfo, small=false }) {
     const Icon = iconMap[project.image];
     return(
-        <div className="card">
+        <div className={small ? "card card-small" : "card"}>
             <div className="card-title">
                 { project.title }
             </div>
