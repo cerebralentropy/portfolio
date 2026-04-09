@@ -26,7 +26,6 @@ function App() {
                         key={project.title}
                         project={project}
                         onMoreInfo={setActiveProject}
-                        // small={true}
                     />
                 ))}
             {/*</div>*/}
