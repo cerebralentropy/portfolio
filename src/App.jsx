@@ -20,7 +20,6 @@ function App() {
                 </div>
             </header>
              <Carousel>
-            {/*<div className='carousel'>*/}
                 {projects.map(project => (
                     <Card
                         key={project.title}
@@ -28,7 +27,6 @@ function App() {
                         onMoreInfo={setActiveProject}
                     />
                 ))}
-            {/*</div>*/}
              </Carousel>
             <footer>
                 <div>

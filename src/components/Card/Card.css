@@ -2,11 +2,11 @@
   padding: 1rem;
 
   display: grid;
-  grid-template-rows: 4lh 1fr 3lh 1.75lh;
+  grid-template-rows: 4lh 1fr 2lh 1.75lh;
   gap: 1rem;
   
   width: 20rem;
-  height: 30rem;
+  height: 29rem;
   min-height: 0;
   
   font-size: 1rem;
@@ -43,13 +43,13 @@
   text-shadow: 0 1px 2px rgba(0,0,0,.5);
 }
 
-.card-hero {
+.card-icon {
   display: grid;
   place-items: center;
   min-height: 0;
 }
 
-.card-hero-img {
+.card-icon-img {
   width: min(12rem, 100%);
   max-height: 100%;
   aspect-ratio: 1 / 1;
@@ -60,8 +60,8 @@
   color: var(--color-text-primary);
 }
 
-.card-hero-img > svg,
-.card-hero-img > img {
+.card-icon-img > svg,
+.card-icon-img > img {
   width: 100%;
   height: 100%;
 }
@@ -114,6 +114,6 @@
   grid-template-rows: auto 1fr 1.75lh;
 }
 
-.card-small .card-hero {
+.card-small .card-icon {
   display: none;
 }

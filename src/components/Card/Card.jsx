@@ -2,14 +2,14 @@ import "./Card.css"
 import { iconMap } from "../../data/iconMap";
 
 export default function Card({ project, onMoreInfo, small=false }) {
-    const Icon = iconMap[project.image];
+    const Icon = iconMap[project.icon];
     return(
         <div className={small ? "card card-small" : "card"}>
             <div className="card-title">
                 { project.title }
             </div>
-            <div className="card-hero">
-                <div className="card-hero-img">
+            <div className="card-icon">
+                <div className="card-icon-img">
                     <Icon />
                 </div>
             </div>

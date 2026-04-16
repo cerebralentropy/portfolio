@@ -1,32 +1,52 @@
 [
     {
-        "title": "Disruptive Overlays",
-        "desc": "Dynamic studio promotional overlays integrated into live concession menu boards.",
-        "image": "layers2",
-        "link": "https://www.youtube.com/playlist?list=PL4usBPe9bJIUigEJ1T5i8Zt6KCkq-G0sr"
-    },
-    {
         "title": "Apiary",
         "desc": "Apiary",
-        "image": "hive",
-        "link": null
+        "about": "",
+        "icon": "hive",
+        "image": null,
+        "link": null,
+        "tools": []
     },
     {
         "title": "Flo",
         "desc": "Flo",
-        "image": "popcorn",
-        "link": null
+        "about": "",
+        "icon": "popcorn",
+        "image": null,
+        "link": null,
+        "tools": []
     },
     {
         "title": "Auditorium Entrance",
         "desc": "AE",
-        "image": "rectangleVertical",
-        "link": null
+        "about": "",
+        "icon": "rectangleVertical",
+        "image": null,
+        "link": null,
+        "tools": []
     },
     {
         "title": "Box Office",
         "desc": "BO",
-        "image": "rectangleHorizontal",
-        "link": null
+        "about": "",
+        "icon": "rectangleHorizontal",
+        "image": null,
+        "link": null,
+        "tools": []
+    },
+    {
+        "title": "Disruptive Overlays",
+        "desc": "Menu board promotional overlays",
+        "about": "Animated overlays built from studio-provided assets, repurposed and integrated into live concession menu boards. Due to CMS limitations with transparency, overlays were delivered as HTML packages using WebM video to preserve alpha and enable proper layering within dynamic layouts.",
+        "icon": "layers2",
+        "image": "images/disruptive-overlays.webp",
+        "link": "https://www.youtube.com/playlist?list=PL4usBPe9bJIUigEJ1T5i8Zt6KCkq-G0sr",
+        "tools": [
+            "After Effects",
+            "Premiere Pro",
+            "Photoshop",
+            "Illustrator"
+        ]
     }
 ]
