@@ -1,46 +1,82 @@
 [
     {
         "title": "Apiary",
-        "desc": "Apiary",
-        "about": "",
+        "desc": "Digital signage data API",
+        "about": "API service built with Python and Flask to consolidate data from multiple sources and return it in a simplified format for digital signage applications. It pulled from a SQLite store and an MSSQL view, handling aggregation server-side to avoid exposing API keys on media players.",
         "icon": "hive",
-        "image": null,
+        "image": "images/apiary.webp",
         "link": null,
-        "tools": []
-    },
-    {
-        "title": "Flo",
-        "desc": "Flo",
-        "about": "",
-        "icon": "popcorn",
-        "image": null,
-        "link": null,
-        "tools": []
+        "tools": [
+            "Python",
+            "Flask",
+            "SQLite",
+            "Microsoft SQL Server",
+            "API Integration"
+        ]
     },
     {
         "title": "Auditorium Entrance",
-        "desc": "AE",
-        "about": "",
+        "desc": "Theater entrance display",
+        "about": "Entrance display for individual auditoriums showing movie posters, showtimes, and status like now playing or cleaning. Designed to align with brand identity and powered by Apiary data, combining CDN-hosted poster assets with real-time updates.",
         "icon": "rectangleVertical",
-        "image": null,
+        "image": "images/ae.webp",
         "link": null,
-        "tools": []
+        "tools": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "API Integration",
+            "CDN"
+        ]
     },
     {
         "title": "Box Office",
-        "desc": "BO",
-        "about": "",
+        "desc": "Upcoming movies display",
+        "about": "Box office display showing upcoming movies with showtimes and metadata. Designed to match brand identity and powered by Apiary, allowing centralized formatting and consistent updates across locations.",
         "icon": "rectangleHorizontal",
-        "image": null,
+        "image": "images/bo.webp",
         "link": null,
-        "tools": []
+        "tools": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "API Integration"
+        ]
+    },
+    {
+        "title": "Menu Boards",
+        "desc": "Dynamic concession menus",
+        "about": "Converted static menu board designs into HTML-based layouts, enabling dynamic pricing updates driven by Apiary data. Established the structure and logic for real-time content, and guided a junior developer through implementing the JavaScript layer.",
+        "icon": "popcorn",
+        "image": "images/mb.webp",
+        "link": null,
+        "tools": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "API Integration"
+        ]
+    },
+    {
+        "title": "Flo",
+        "desc": "Order pickup display",
+        "about": "Pickup screen for online, kiosk, and POS orders that displayed readiness status in real time. It queried an MSSQL database tied to the kitchen system to detect completed orders, showing customer names when available from the loyalty system or falling back to order numbers.",
+        "icon": "handPlatter",
+        "image": "images/flo.webp",
+        "link": null,
+        "tools": [
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Microsoft SQL Server"
+        ]
     },
     {
         "title": "Disruptive Overlays",
         "desc": "Menu board promotional overlays",
         "about": "Animated overlays built from studio-provided assets, repurposed and integrated into live concession menu boards. Due to CMS limitations with transparency, overlays were delivered as HTML packages using WebM video to preserve alpha and enable proper layering within dynamic layouts.",
         "icon": "layers2",
-        "image": "images/disruptive-overlays.webp",
+        "image": "images/dov.webp",
         "link": "https://www.youtube.com/playlist?list=PL4usBPe9bJIUigEJ1T5i8Zt6KCkq-G0sr",
         "tools": [
             "After Effects",

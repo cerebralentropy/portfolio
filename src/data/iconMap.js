@@ -1,4 +1,4 @@
-import { Layers2, RectangleVertical, RectangleHorizontal, Popcorn } from "lucide-react";
+import { Layers2, RectangleVertical, RectangleHorizontal, Popcorn, HandPlatter } from "lucide-react";
 import Hive from "../assets/hive.svg?react"
 
 export const iconMap = {
@@ -7,4 +7,5 @@ export const iconMap = {
     popcorn: Popcorn,
     rectangleHorizontal: RectangleHorizontal,
     hive: Hive,
+    handPlatter: HandPlatter,
 }
